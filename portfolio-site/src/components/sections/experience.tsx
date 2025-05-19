@@ -140,9 +140,9 @@ export function Experience() {
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-start gap-3">
                         <div
-                          className={`flex items-center justify-center rounded-lg bg-gradient-to-br ${exp.color} shadow-sm h-12 w-12 sm:h-12 sm:w-12 h-10 w-10 mx-auto sm:mx-0`}
+                          className={`flex items-center justify-center rounded-full aspect-square bg-gradient-to-br ${exp.color} shadow-sm w-10 h-10 sm:w-12 sm:h-12 mx-auto sm:mx-0`}
                         >
-                          <Briefcase className="h-5 w-5 sm:h-5 sm:w-5 h-4 w-4 text-white" />
+                          <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                         </div>
                         <div>
                           <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
