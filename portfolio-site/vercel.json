@@ -1,8 +1,9 @@
 {
   "name": "portfolio-site",
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
   "framework": "nextjs",
-  "outputDirectory": ".next",
-  "regions": ["sfo1"]
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "regions": ["sfo1"],
+  "cleanUrls": true,
+  "trailingSlash": false
 } 

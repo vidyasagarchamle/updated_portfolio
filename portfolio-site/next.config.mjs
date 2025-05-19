@@ -12,6 +12,10 @@ const nextConfig = {
       },
     ],
   },
+  // Configure for Vercel deployment
+  output: 'standalone',
+  poweredByHeader: false,
+  reactStrictMode: true,
 };
 
 export default nextConfig; 
