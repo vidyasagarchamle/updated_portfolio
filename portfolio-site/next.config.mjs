@@ -26,6 +26,14 @@ const nextConfig = {
     // Only check types on local development, not during builds
     ignoreBuildErrors: true,
   },
+  // Ensure correct output tracing and tree-shaking
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
+  // Fix trailing slash behavior for Next.js App Router
+  trailingSlash: false,
+  // Needed for certain deployment environments
+  assetPrefix: undefined,
 };
 
 export default nextConfig; 

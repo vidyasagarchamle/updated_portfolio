@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "name": "portfolio-site",
   "framework": "nextjs",
   "buildCommand": "npm run vercel-build",

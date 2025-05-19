@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd portfolio-site && npm run vercel-build",
+  "installCommand": "cd portfolio-site && npm install --legacy-peer-deps --no-fund --no-audit",
+  "outputDirectory": "portfolio-site/.next",
+  "framework": "nextjs",
+  "cleanUrls": true,
+  "trailingSlash": false
+} 
