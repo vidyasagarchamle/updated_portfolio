@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion, HTMLMotionProps } from "framer-motion"
-import { Github, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
+import React from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-const MotionDiv = motion.div
-const MotionH2 = motion.h2
-const MotionP = motion.p
+const MotionDiv = motion.div;
+const MotionH2 = motion.h2;
+const MotionP = motion.p;
 
 export function About() {
   return (
     <section id="about" className="py-10 md:py-16 relative overflow-hidden">
       {/* Ultra-subtle background effect */}
       <div className="absolute inset-0 bg-gradient-animation opacity-4"></div>
-      
+
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Section label with minimal animation */}
-          <MotionDiv 
+          <MotionDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -28,9 +28,9 @@ export function About() {
           >
             About Me
           </MotionDiv>
-          
+
           {/* Clean heading with gradient text */}
-          <MotionH2 
+          <MotionH2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
@@ -42,7 +42,7 @@ export function About() {
               Problem Solver
             </span>
           </MotionH2>
-          
+
           {/* Simplified content with better spacing */}
           <div className="space-y-7">
             <MotionP
@@ -52,9 +52,10 @@ export function About() {
               viewport={{ once: true }}
               className="text-lg leading-relaxed text-foreground/80"
             >
-              Hello, I'm Vidyasagar, a product manager with a curious mind, a builder's instinct, and a soft spot for philosophy and cinema.
+              Hello, I'm Vidyasagar, a product manager with a curious mind, a
+              builder's instinct, and a soft spot for philosophy and cinema.
             </MotionP>
-            
+
             <MotionP
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -62,9 +63,14 @@ export function About() {
               viewport={{ once: true }}
               className="text-lg leading-relaxed text-foreground/80"
             >
-              My journey into product began with an obsession for how things work, not just in tech, but in people, systems, and stories. Over the past few years, I've worked at the intersection of Web3, consumer apps, and emerging technologies, bringing clarity to chaos and shaping digital experiences that are as thoughtful as they are scalable.
+              My journey into product began with an obsession for how things
+              work, not just in tech, but in people, systems, and stories. Over
+              the past few years, I've worked at the intersection of Web3,
+              consumer apps, and emerging technologies, bringing clarity to
+              chaos and shaping digital experiences that are as thoughtful as
+              they are scalable.
             </MotionP>
-            
+
             <MotionP
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -72,7 +78,9 @@ export function About() {
               viewport={{ once: true }}
               className="text-lg leading-relaxed text-foreground/80"
             >
-              Whether I'm writing a PRD, jamming with designers, or decoding user behavior at 2AM, I bring an obsessive attention to detail and a deep desire to solve meaningful problems.
+              Whether I'm writing a PRD, jamming with designers, or decoding
+              user behavior at 2AM, I bring an obsessive attention to detail and
+              a deep desire to solve meaningful problems.
             </MotionP>
 
             <MotionP
@@ -82,7 +90,9 @@ export function About() {
               viewport={{ once: true }}
               className="text-lg leading-relaxed text-foreground/80"
             >
-              Outside of work, you'll find me diving into existential reads, rewatching Nolan's films, or chasing the next big idea over coffee-fueled midnight notes.
+              Outside of work, you'll find me diving into existential reads,
+              rewatching Nolan's films, or chasing the next big idea over
+              coffee-fueled midnight notes.
             </MotionP>
 
             <MotionP
@@ -94,7 +104,7 @@ export function About() {
             >
               Let's build something that actually matters.
             </MotionP>
-            
+
             {/* Ultra-minimal social links */}
             <MotionDiv
               initial={{ opacity: 0 }}
@@ -133,5 +143,5 @@ export function About() {
         </div>
       </div>
     </section>
-  )
-} 
+  );
+}

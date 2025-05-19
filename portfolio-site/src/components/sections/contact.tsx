@@ -1,46 +1,46 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion } from "framer-motion"
-import { Mail, MessageSquare, Send } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useForm } from "react-hook-form"
+import React from "react";
+import { motion } from "framer-motion";
+import { Mail, MessageSquare, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
 
 export function Contact() {
-  const { register, handleSubmit, formState, reset } = useForm()
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [isSubmitted, setIsSubmitted] = React.useState(false)
+  const { register, handleSubmit, formState, reset } = useForm();
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
 
   const onSubmit = async (data: any) => {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     // In a real application, you would send the form data to your backend
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    reset()
-    setTimeout(() => setIsSubmitted(false), 3000)
-  }
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    reset();
+    setTimeout(() => setIsSubmitted(false), 3000);
+  };
 
   return (
     <section id="contact" className="relative overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid-small-white/[0.2] [mask-image:radial-gradient(white,transparent_85%)]" />
         <div className="absolute inset-0 bg-background [mask-image:radial-gradient(transparent,white_60%)] opacity-70" />
-        
+
         {/* Animated gradient background */}
-        <motion.div 
+        <motion.div
           className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
-          animate={{ 
-            x: [0, 10, 0], 
+          animate={{
+            x: [0, 10, 0],
             y: [0, 15, 0],
-            opacity: [0.3, 0.4, 0.3] 
+            opacity: [0.3, 0.4, 0.3],
           }}
-          transition={{ 
-            duration: 8, 
+          transition={{
+            duration: 8,
             repeat: Infinity,
-            ease: "easeInOut" 
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -56,7 +56,8 @@ export function Contact() {
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">Get In Touch</h2>
           <div className="mx-auto h-1 w-20 bg-primary" />
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Interested in working together? Send me a message and I'll get back to you as soon as possible.
+            Interested in working together? Send me a message and I'll get back
+            to you as soon as possible.
           </p>
         </motion.div>
 
@@ -70,7 +71,10 @@ export function Contact() {
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium leading-none">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-medium leading-none"
+                >
                   Name
                 </label>
                 <Input
@@ -80,9 +84,12 @@ export function Contact() {
                   className="bg-background"
                 />
               </div>
-              
+
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium leading-none">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium leading-none"
+                >
                   Email
                 </label>
                 <Input
@@ -93,9 +100,12 @@ export function Contact() {
                   className="bg-background"
                 />
               </div>
-              
+
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium leading-none">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-medium leading-none"
+                >
                   Message
                 </label>
                 <Textarea
@@ -105,9 +115,9 @@ export function Contact() {
                   className="min-h-32 bg-background"
                 />
               </div>
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 disabled={isSubmitting}
                 className="group relative w-full overflow-hidden rounded-full"
               >
@@ -133,5 +143,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
-} 
+  );
+}

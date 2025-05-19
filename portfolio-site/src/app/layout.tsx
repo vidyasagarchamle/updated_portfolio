@@ -11,7 +11,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Vidyasagar Chamle | Product Manager",
-  description: "Portfolio of Vidyasagar Chamle, Product Manager specializing in user-centered design and data-driven decisions",
+  description:
+    "Portfolio of Vidyasagar Chamle, Product Manager specializing in user-centered design and data-driven decisions",
 };
 
 export default function RootLayout({
@@ -31,9 +32,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <ScrollObserverProvider>
-            {children}
-          </ScrollObserverProvider>
+          <ScrollObserverProvider>{children}</ScrollObserverProvider>
         </ThemeProvider>
       </body>
     </html>

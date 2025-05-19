@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { motion } from "framer-motion"
-import { Copy, Mail, Check } from "lucide-react"
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { Copy, Mail, Check } from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { ThemeToggle } from "./theme-toggle"
-import { 
+import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./theme-toggle";
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -24,149 +24,153 @@ const navItems = [
   { name: "Projects", path: "#projects" },
   { name: "Skills", path: "#skills" },
   { name: "Blog", path: "#blog" },
-]
+];
 
 export function MainNav() {
-  const pathname = usePathname()
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
-  const [isScrolled, setIsScrolled] = React.useState(false)
-  const [activeSection, setActiveSection] = React.useState("/")
-  const [lastActiveSection, setLastActiveSection] = React.useState("/")
-  const inTransitionRef = React.useRef(false)
-  const transitionTimeoutRef = React.useRef<NodeJS.Timeout | null>(null)
-  const [copied, setCopied] = React.useState(false)
-  
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState("/");
+  const [lastActiveSection, setLastActiveSection] = React.useState("/");
+  const inTransitionRef = React.useRef(false);
+  const transitionTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const [copied, setCopied] = React.useState(false);
+
   // Function to copy email to clipboard
   const copyEmailToClipboard = () => {
-    const email = "vidyasagar.chamle@gmail.com"
-    navigator.clipboard.writeText(email)
+    const email = "vidyasagar.chamle@gmail.com";
+    navigator.clipboard
+      .writeText(email)
       .then(() => {
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
       })
-      .catch(err => {
-        console.error('Could not copy email: ', err)
-      })
-  }
+      .catch((err) => {
+        console.error("Could not copy email: ", err);
+      });
+  };
 
   // Handle scroll events for navbar styling and active section tracking
   React.useEffect(() => {
     const handleScroll = () => {
       // Check if page is scrolled to add background blur
-      setIsScrolled(window.scrollY > 20)
-      
+      setIsScrolled(window.scrollY > 20);
+
       // Determine active section based on scroll position
       const sections = navItems
-        .filter(item => item.path.startsWith('#'))
-        .map(item => ({
+        .filter((item) => item.path.startsWith("#"))
+        .map((item) => ({
           id: item.path.substring(1),
-          path: item.path
-        }))
-      
+          path: item.path,
+        }));
+
       // Find all sections in view with their positions
       const visibleSections = sections
-        .map(section => {
-          const element = document.getElementById(section.id)
-          if (!element) return null
-          
-          const rect = element.getBoundingClientRect()
+        .map((section) => {
+          const element = document.getElementById(section.id);
+          if (!element) return null;
+
+          const rect = element.getBoundingClientRect();
           // Consider a section "in view" if its top is near the top of the viewport
           // or if it fills most of the viewport
-          const visibilityScore = 
+          const visibilityScore =
             // Higher score the closer the top of section is to the top of viewport
             Math.max(0, 1 - Math.abs(rect.top) / 300) +
             // Higher score the more the section fills the viewport
-            (rect.bottom > 0 && rect.top < window.innerHeight ? 
-              Math.min(1, rect.height / window.innerHeight) : 0)
-          
+            (rect.bottom > 0 && rect.top < window.innerHeight
+              ? Math.min(1, rect.height / window.innerHeight)
+              : 0);
+
           return {
             path: section.path,
             score: visibilityScore,
             top: rect.top,
             bottom: rect.bottom,
-            height: rect.height
-          }
+            height: rect.height,
+          };
         })
         .filter(Boolean)
-        .sort((a, b) => b!.score - a!.score)
-      
+        .sort((a, b) => b!.score - a!.score);
+
       // Get the most visible section
-      const mostVisibleSection = visibleSections[0]
-      
+      const mostVisibleSection = visibleSections[0];
+
       if (mostVisibleSection) {
         // If a section is clearly visible, set it as active
-        if (mostVisibleSection.score > 0.3) { // Threshold for considering a section visible enough
-          setLastActiveSection(mostVisibleSection.path)
-          setActiveSection(mostVisibleSection.path)
-          inTransitionRef.current = false
-          
+        if (mostVisibleSection.score > 0.3) {
+          // Threshold for considering a section visible enough
+          setLastActiveSection(mostVisibleSection.path);
+          setActiveSection(mostVisibleSection.path);
+          inTransitionRef.current = false;
+
           if (transitionTimeoutRef.current) {
-            clearTimeout(transitionTimeoutRef.current)
-            transitionTimeoutRef.current = null
+            clearTimeout(transitionTimeoutRef.current);
+            transitionTimeoutRef.current = null;
           }
-        } 
+        }
         // If we're not in a transition but no section is clearly visible
-        else if (!inTransitionRef.current && 
-                mostVisibleSection.score < 0.3 && 
-                activeSection !== "/") {
-          
-          inTransitionRef.current = true
-          
+        else if (
+          !inTransitionRef.current &&
+          mostVisibleSection.score < 0.3 &&
+          activeSection !== "/"
+        ) {
+          inTransitionRef.current = true;
+
           // Keep the previous active section during transition
           // but set a timeout to revert to home if we stay in this state
           if (transitionTimeoutRef.current) {
-            clearTimeout(transitionTimeoutRef.current)
+            clearTimeout(transitionTimeoutRef.current);
           }
-          
+
           transitionTimeoutRef.current = setTimeout(() => {
             // If we're still in transition after timeout, then we might be at the top
             if (window.scrollY < 100) {
-              setActiveSection("/")
+              setActiveSection("/");
             }
-            inTransitionRef.current = false
-          }, 1000)
+            inTransitionRef.current = false;
+          }, 1000);
         }
         // If we've scrolled to the very top
         else if (window.scrollY < 50) {
-          setActiveSection("/")
+          setActiveSection("/");
         }
       } else if (window.scrollY < 50) {
         // If no section is visible and we're at the top
-        setActiveSection("/")
+        setActiveSection("/");
       } else if (!inTransitionRef.current) {
         // In between sections but not at the top, maintain the last active section
-        setActiveSection(lastActiveSection)
+        setActiveSection(lastActiveSection);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("scroll", handleScroll);
       if (transitionTimeoutRef.current) {
-        clearTimeout(transitionTimeoutRef.current)
+        clearTimeout(transitionTimeoutRef.current);
       }
-    }
-  }, [activeSection, lastActiveSection])
+    };
+  }, [activeSection, lastActiveSection]);
 
   // Control body scroll when mobile menu is open
   React.useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ""
-    }
-  }, [isMenuOpen])
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
-    <motion.nav 
+    <motion.nav
       className={cn(
         "fixed top-0 z-50 w-full border-b theme-transition",
-        isScrolled 
-          ? "border-border/40 bg-background/90 backdrop-blur-xl shadow-md" 
-          : "border-transparent bg-transparent"
+        isScrolled
+          ? "border-border/40 bg-background/90 backdrop-blur-xl shadow-md"
+          : "border-transparent bg-transparent",
       )}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -174,24 +178,27 @@ export function MainNav() {
     >
       <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-8 md:gap-12">
-          <Link href="/" className="group flex items-center gap-3 transition-all">
+          <Link
+            href="/"
+            className="group flex items-center gap-3 transition-all"
+          >
             <div className="relative flex h-10 w-10 items-center justify-center logo-icon">
               <div className="logo-icon-glow animate-pulse"></div>
               <div className="logo-icon-bg"></div>
               <div className="logo-icon-text spinning-border">VC</div>
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 rounded-lg border border-primary/20"
-                animate={{ 
+                animate={{
                   boxShadow: [
                     "0 0 0 rgba(156, 39, 176, 0)",
                     "0 0 10px rgba(156, 39, 176, 0.3)",
-                    "0 0 0 rgba(156, 39, 176, 0)"
-                  ]
+                    "0 0 0 rgba(156, 39, 176, 0)",
+                  ],
                 }}
-                transition={{ 
-                  duration: 3, 
+                transition={{
+                  duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut" 
+                  ease: "easeInOut",
                 }}
               />
             </div>
@@ -199,17 +206,19 @@ export function MainNav() {
               <span className="text-lg font-bold tracking-tight">
                 Vidyasagar Chamle
               </span>
-              <span className="text-xs text-muted-foreground">Product Manager</span>
+              <span className="text-xs text-muted-foreground">
+                Product Manager
+              </span>
             </div>
           </Link>
-          
+
           <div className="hidden md:flex md:items-center md:gap-2">
             {navItems.map((item) => (
-              <NavLink 
+              <NavLink
                 key={item.path}
                 href={item.path}
                 active={
-                  item.path === "/" 
+                  item.path === "/"
                     ? pathname === "/" && activeSection === "/"
                     : activeSection === item.path
                 }
@@ -219,14 +228,14 @@ export function MainNav() {
             ))}
           </div>
         </div>
-        
+
         <div className="flex items-center gap-3">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
+                <Button
+                  variant="ghost"
+                  size="icon"
                   onClick={copyEmailToClipboard}
                   className="relative h-9 w-9 overflow-hidden rounded-full border bg-background hover:bg-muted shadow-sm"
                 >
@@ -246,11 +255,13 @@ export function MainNav() {
           </TooltipProvider>
 
           <ThemeToggle />
-          
+
           <button
             className={cn(
               "flex h-10 w-10 items-center justify-center rounded-lg border p-2 text-foreground transition-colors md:hidden",
-              isScrolled ? "border-border bg-background/50 hover:bg-muted" : "border-transparent hover:bg-background/50"
+              isScrolled
+                ? "border-border bg-background/50 hover:bg-muted"
+                : "border-transparent hover:bg-background/50",
             )}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
@@ -281,7 +292,7 @@ export function MainNav() {
           </button>
         </div>
       </div>
-      
+
       {/* Mobile navigation overlay */}
       {isMenuOpen && (
         <div className="fixed inset-0 top-20 z-40 flex flex-col bg-background/98 backdrop-blur-md md:hidden">
@@ -310,7 +321,7 @@ export function MainNav() {
                       "flex items-center rounded-lg px-4 py-4 text-lg font-medium transition-colors",
                       activeSection === item.path
                         ? "bg-primary/10 text-primary"
-                        : "hover:bg-muted"
+                        : "hover:bg-muted",
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -319,22 +330,22 @@ export function MainNav() {
                 </motion.div>
               ))}
             </motion.nav>
-            
+
             <div className="mt-auto"></div>
           </div>
         </div>
       )}
     </motion.nav>
-  )
+  );
 }
 
-function NavLink({ 
-  href, 
-  active, 
-  children 
-}: { 
-  href: string; 
-  active: boolean; 
+function NavLink({
+  href,
+  active,
+  children,
+}: {
+  href: string;
+  active: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -342,9 +353,9 @@ function NavLink({
       href={href}
       className={cn(
         "relative px-4 py-2 text-sm font-medium transition-colors rounded-md animated-underline",
-        active 
-          ? "text-primary bg-primary/5" 
-          : "text-foreground/80 hover:text-foreground hover:bg-muted/50"
+        active
+          ? "text-primary bg-primary/5"
+          : "text-foreground/80 hover:text-foreground hover:bg-muted/50",
       )}
     >
       {children}
@@ -356,5 +367,5 @@ function NavLink({
         />
       )}
     </Link>
-  )
-} 
+  );
+}
