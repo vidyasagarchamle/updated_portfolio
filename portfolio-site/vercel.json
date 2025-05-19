@@ -1,7 +1,7 @@
 {
   "name": "portfolio-site",
   "framework": "nextjs",
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run vercel-build",
   "installCommand": "npm install --legacy-peer-deps --no-fund --no-audit",
   "regions": ["sfo1"],
   "cleanUrls": true,

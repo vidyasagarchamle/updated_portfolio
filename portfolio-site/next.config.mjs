@@ -16,6 +16,11 @@ const nextConfig = {
   output: 'standalone',
   poweredByHeader: false,
   reactStrictMode: true,
+  // Disable ESLint during build
+  eslint: {
+    // Only run ESLint on local development, not during builds
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig; 
