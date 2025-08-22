@@ -7,7 +7,7 @@ import { Experience } from "@/components/sections/experience";
 import { CaseStudies } from "@/components/sections/case-studies";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
-import { Blog } from "@/components/sections/blog";
+
 import { Footer } from "@/components/footer";
 import { motion } from "framer-motion";
 
@@ -104,17 +104,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Blog section */}
-          <div className="container px-4 md:px-6">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={sectionVariants}
-            >
-              <Blog />
-            </motion.div>
-          </div>
+
         </div>
       </main>
 
@@ -123,6 +113,7 @@ export default function Home() {
         whileInView="visible"
         viewport={{ once: true }}
         variants={sectionVariants}
+        className="relative z-10"
       >
         <Footer />
       </motion.div>

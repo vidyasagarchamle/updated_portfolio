@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type ColorVariant = "purple" | "blue" | "green" | "orange" | "pink";
+type ColorVariant = "primary" | "blue" | "green" | "orange" | "pink";
 
 const caseStudies = [
   {
@@ -38,7 +38,7 @@ const caseStudies = [
     pdfPath: "/case-studies/just-dance-now.pdf",
     icon: <Zap className="h-5 w-5" />,
     size: "medium",
-    color: "purple" as ColorVariant,
+    color: "primary" as ColorVariant,
   },
   {
     id: 2,
@@ -93,7 +93,7 @@ const caseStudies = [
     pdfPath: "/case-studies/fampay.pdf",
     icon: <Lightbulb className="h-5 w-5" />,
     size: "medium",
-    color: "purple" as ColorVariant,
+    color: "primary" as ColorVariant,
   },
   {
     id: 7,
@@ -120,8 +120,8 @@ const caseStudies = [
 ];
 
 const colorVariants: Record<ColorVariant, string> = {
-  purple:
-    "from-purple-500/20 to-purple-500/0 hover:from-purple-500/30 hover:to-purple-500/10 border-purple-500/20 hover:border-purple-500/30",
+  primary:
+    "from-blue-500/20 to-blue-500/0 hover:from-blue-500/30 hover:to-blue-500/10 border-blue-500/20 hover:border-blue-500/30",
   blue: "from-blue-500/20 to-blue-500/0 hover:from-blue-500/30 hover:to-blue-500/10 border-blue-500/20 hover:border-blue-500/30",
   green:
     "from-green-500/20 to-green-500/0 hover:from-green-500/30 hover:to-green-500/10 border-green-500/20 hover:border-green-500/30",
@@ -134,11 +134,8 @@ export function CaseStudies() {
   return (
     <section
       id="case-studies"
-      className="py-16 md:py-20 relative overflow-hidden"
+      className="py-16 md:py-20 relative"
     >
-      {/* Subtle background effects */}
-      <div className="absolute inset-0 bg-gradient-animation opacity-5"></div>
-      <div className="absolute inset-0 light-grid-pattern dark:dark-grid-pattern opacity-20"></div>
 
       <div className="container relative z-10">
         <motion.div
@@ -157,7 +154,7 @@ export function CaseStudies() {
             Case Studies
           </div>
           <h2 className="text-4xl font-bold md:text-5xl text-balance mb-4">
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent">
               Solving
             </span>{" "}
             Product Challenges
@@ -199,8 +196,8 @@ export function CaseStudies() {
                       <div
                         className={cn(
                           "rounded-full w-10 h-10 flex items-center justify-center",
-                          study.color === "purple"
-                            ? "bg-purple-500/20"
+                          study.color === "primary"
+                            ? "bg-blue-500/20"
                             : study.color === "blue"
                               ? "bg-blue-500/20"
                               : study.color === "green"

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Github, Linkedin, Mail, Heart, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, ExternalLink, PenTool } from "lucide-react";
 import { motion } from "framer-motion";
 
 // SocialLink Component
@@ -30,7 +30,7 @@ export function SocialLink({
 // Extremely simplified Footer component for debugging
 export function Footer() {
   return (
-    <footer className="border-t py-12 bg-background">
+    <footer className="relative z-20 border-t border-border/40 py-12 bg-background/95 backdrop-blur-sm shadow-lg">
       <div className="container mx-auto">
         <div className="flex justify-between flex-col md:flex-row">
           <div>
@@ -48,6 +48,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/60 text-foreground/80 dark:text-foreground/90 hover:bg-primary/10 hover:text-primary transition-all duration-200"
+              aria-label="GitHub Profile"
             >
               <Github className="h-5 w-5" />
             </Link>
@@ -56,14 +57,25 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/60 text-foreground/80 dark:text-foreground/90 hover:bg-primary/10 hover:text-primary transition-all duration-200"
+              aria-label="LinkedIn Profile"
             >
               <Linkedin className="h-5 w-5" />
+            </Link>
+            <Link
+              href="https://medium.com/@vidyasagarchamle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/60 text-foreground/80 dark:text-foreground/90 hover:bg-primary/10 hover:text-primary transition-all duration-200"
+              aria-label="Medium Articles"
+            >
+              <PenTool className="h-5 w-5" />
             </Link>
             <Link
               href="mailto:vidyasagar.chamle@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/60 text-foreground/80 dark:text-foreground/90 hover:bg-primary/10 hover:text-primary transition-all duration-200"
+              aria-label="Email Contact"
             >
               <Mail className="h-5 w-5" />
             </Link>

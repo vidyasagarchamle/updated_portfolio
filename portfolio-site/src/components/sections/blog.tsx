@@ -77,11 +77,8 @@ export function Blog() {
   return (
     <section
       id="blog"
-      className="py-16 md:py-24 bg-background dark:bg-black/10 overflow-hidden relative"
+      className="py-16 md:py-24 relative"
     >
-      {/* Subtle background effects */}
-      <div className="absolute inset-0 bg-gradient-animation opacity-5 dark:opacity-10"></div>
-      <div className="absolute inset-0 light-grid-pattern dark:dark-grid-pattern opacity-20"></div>
 
       <div className="container relative z-10 px-4 md:px-6 mx-auto">
         <motion.div
@@ -102,7 +99,7 @@ export function Blog() {
           </div>
           <h2 className="text-4xl font-bold md:text-5xl text-balance mb-4">
             Recent{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent dark:from-purple-300 dark:to-purple-500">
+            <span className="bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-teal-500">
               Articles
             </span>
           </h2>

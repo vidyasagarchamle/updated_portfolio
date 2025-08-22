@@ -16,14 +16,50 @@ import {
 const experiences = [
   {
     id: 1,
+    company: "ZAVIS",
+    position: "Lead Product Manager",
+    period: "Current",
+    location: "UAE & GCC Region",
+    color: "from-rose-500 to-pink-700",
+    bgGradient: "bg-gradient-to-br from-rose-500/5 to-transparent",
+    borderColor: "border-rose-500/20",
+    iconColor: "text-rose-500",
+    summary:
+      "Building AI voice agents that automate business calls across support, onboarding, and verifications — tailored for the UAE & GCC region.",
+    achievements: [
+      "Leading product from zero to rollout, defining AI voice agent capabilities and business call automation flows",
+      "Working closely with engineering and ops teams to ship fast, scalable solutions for enterprise clients",
+      "Designing localized experiences for UAE & GCC markets with cultural and business context considerations",
+    ],
+  },
+  {
+    id: 2,
+    company: "Webhash",
+    position: "Lead Product Manager",
+    period: "Current",
+    location: "Remote",
+    color: "from-indigo-500 to-blue-700",
+    bgGradient: "bg-gradient-to-br from-indigo-500/5 to-transparent",
+    borderColor: "border-indigo-500/20",
+    iconColor: "text-indigo-500",
+    summary:
+      "Working on a permissionless network to make websites permanent and censorship-resistant using IPFS.",
+    achievements: [
+      "Leading product strategy across protocol and ecosystem products for decentralized web infrastructure",
+      "Defining technical specifications and user experiences for permissionless website hosting",
+      "Collaborating with protocol engineers to build scalable IPFS-based solutions for content permanence",
+    ],
+  },
+  {
+    id: 3,
     company: "Bit Billionaire by League Sports Co.",
     position: "Associate Product Manager",
     period: "Oct 2024 – Mar 2025",
     location: "Remote (Dubai)",
-    color: "from-violet-500 to-purple-700",
-    bgGradient: "bg-gradient-to-br from-violet-500/5 to-transparent",
-    borderColor: "border-violet-500/20",
-    iconColor: "text-violet-500",
+    color: "from-blue-500 to-teal-600",
+    bgGradient: "bg-gradient-to-br from-blue-500/5 to-transparent",
+    borderColor: "border-blue-500/20",
+    iconColor: "text-blue-500",
     summary:
       "A Telegram-based Web3 mini-game that introduced casual players to crypto gaming through simple, viral mechanics.",
     achievements: [
@@ -33,7 +69,7 @@ const experiences = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     company: "WBL TMS & Play by League Sports Co.",
     position: "Associate Product Manager",
     period: "Sept 2023 – Sept 2024",
@@ -51,7 +87,7 @@ const experiences = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     company: "Zone by League Sports Co.",
     position: "Associate Product Manager",
     period: "Oct 2022 – Nov 2023",
@@ -69,7 +105,7 @@ const experiences = [
     ],
   },
   {
-    id: 4,
+    id: 6,
     company: "TRRAIN Circle Technologies",
     position: "Product Management Intern",
     period: "June 2022 – Aug 2022",
@@ -110,7 +146,7 @@ export function Experience() {
             </div>
             <h2 className="text-4xl font-bold md:text-5xl text-balance mb-5">
               Where I've{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent">
                 Made Impact
               </span>
             </h2>
@@ -197,23 +233,7 @@ export function Experience() {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <a
-              href="#skills"
-              className="inline-flex items-center gap-2 py-2 px-4 rounded-full text-primary bg-primary/5 hover:bg-primary/10 transition-colors group"
-            >
-              <Sparkles className="h-4 w-4 group-hover:rotate-12 transition-transform" />
-              <span className="font-medium">Explore my full skill set</span>
-              <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </motion.div>
-        </div>
+
       </div>
     </section>
   );

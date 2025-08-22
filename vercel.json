@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "name": "portfolio-site",
-  "framework": "nextjs",
-  "rootDirectory": "portfolio-site",
-  "cleanUrls": true,
-  "trailingSlash": false
-} 

@@ -25,25 +25,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative overflow-hidden py-16 md:py-24">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid-small-white/[0.2] [mask-image:radial-gradient(white,transparent_85%)]" />
-        <div className="absolute inset-0 bg-background [mask-image:radial-gradient(transparent,white_60%)] opacity-70" />
 
-        {/* Animated gradient background */}
-        <motion.div
-          className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
-          animate={{
-            x: [0, 10, 0],
-            y: [0, 15, 0],
-            opacity: [0.3, 0.4, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
 
       <div className="container relative z-10">
         <motion.div
@@ -118,10 +100,10 @@ export function Contact() {
 
               <Button
                 type="submit"
+                variant="gradient"
                 disabled={isSubmitting}
                 className="group relative w-full overflow-hidden rounded-full"
               >
-                <span className="absolute inset-0 z-0 bg-primary transition-all duration-300 group-hover:scale-105" />
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   {isSubmitting ? (
                     "Sending..."

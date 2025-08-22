@@ -59,7 +59,7 @@ const skillCategories: SkillCategory[] = [
     id: "web3",
     name: "Web3 & Blockchain",
     icon: <Globe className="h-5 w-5" />,
-    color: "from-purple-500/20 to-purple-500/5",
+    color: "from-blue-500/20 to-blue-500/5",
     description:
       "Designing, scaling, and managing Web3-native products and economies.",
     skills: [
@@ -167,11 +167,7 @@ const itemVariants = {
 
 export function Skills() {
   return (
-    <section id="skills" className="py-12 md:py-16 relative overflow-hidden">
-      {/* Subtle background effects */}
-      <div className="absolute inset-0 bg-gradient-animation opacity-5"></div>
-      <div className="absolute inset-0 light-grid-pattern dark:dark-grid-pattern opacity-20"></div>
-
+    <section id="skills" className="py-12 md:py-16 relative">
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0 }}
@@ -190,7 +186,7 @@ export function Skills() {
           </div>
           <h2 className="text-3xl font-bold md:text-4xl text-balance mb-3">
             My{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent">
               Skillset
             </span>
           </h2>

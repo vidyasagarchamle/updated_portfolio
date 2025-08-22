@@ -23,7 +23,7 @@ const navItems = [
   { name: "Case Studies", path: "#case-studies" },
   { name: "Projects", path: "#projects" },
   { name: "Skills", path: "#skills" },
-  { name: "Blog", path: "#blog" },
+
 ];
 
 export function MainNav() {

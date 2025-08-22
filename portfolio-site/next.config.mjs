@@ -12,8 +12,7 @@ const nextConfig = {
       },
     ],
   },
-  // Configure for Vercel deployment
-  output: 'standalone',
+  // Configure for optimal Vercel deployment
   poweredByHeader: false,
   reactStrictMode: true,
   // Disable ESLint during build
@@ -27,9 +26,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   // Ensure correct output tracing and tree-shaking
-  experimental: {
-    serverComponentsExternalPackages: [],
-  },
+  serverExternalPackages: [],
   // Fix trailing slash behavior for Next.js App Router
   trailingSlash: false,
   // Needed for certain deployment environments

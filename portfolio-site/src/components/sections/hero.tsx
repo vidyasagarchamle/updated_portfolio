@@ -32,14 +32,14 @@ export function Hero() {
         {/* Grid pattern - light and dark mode optimized */}
         <div className="absolute inset-0 light-grid-pattern dark:dark-grid-pattern" />
 
-        {/* Animated gradient blobs */}
+        {/* Animated gradient blobs with parallax */}
         <div className="blob-animation">
           <motion.div className="blob" style={{ y: y1 }} />
           <motion.div className="blob" style={{ y: y2 }} />
           <motion.div className="blob" />
         </div>
 
-        {/* Subtle floating gradient blobs instead of particle canvas */}
+        {/* Subtle floating gradient blobs */}
         <FloatingGradientBlobs />
       </div>
 
@@ -114,8 +114,9 @@ export function Hero() {
               >
                 <Button
                   asChild
+                  variant="gradient"
                   size="lg"
-                  className="group relative bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white rounded-md px-6 py-3 shadow-md hover:shadow-lg transition-all duration-200"
+                  className="group relative rounded-lg px-8 py-3"
                 >
                   <a
                     href="https://www.linkedin.com/in/vidyasagarchamle/"
@@ -182,14 +183,16 @@ function FloatingGradientBlobs() {
       ref={blobRef}
       className="absolute inset-0 overflow-hidden pointer-events-none"
     >
-      {/* Large purple blob top left */}
-      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[50%] rounded-full radial-blur bg-gradient-to-br from-purple-500/5 to-transparent"></div>
+      {/* Large blue blob top left */}
+      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[50%] rounded-full radial-blur bg-gradient-to-br from-blue-500/5 to-transparent"></div>
 
-      {/* Medium purple blob bottom right */}
-      <div className="absolute bottom-[-20%] right-[-5%] w-[50%] h-[60%] rounded-full radial-blur bg-gradient-to-tl from-purple-600/5 to-transparent"></div>
+      {/* Medium teal blob bottom right */}
+      <div className="absolute bottom-[-20%] right-[-5%] w-[50%] h-[60%] rounded-full radial-blur bg-gradient-to-tl from-teal-600/5 to-transparent"></div>
 
-      {/* Small purple blob center right */}
-      <div className="absolute top-[30%] right-[10%] w-[30%] h-[30%] rounded-full radial-blur bg-gradient-to-bl from-purple-400/5 to-transparent"></div>
+      {/* Small blue-teal blob center right */}
+      <div className="absolute top-[30%] right-[10%] w-[30%] h-[30%] rounded-full radial-blur bg-gradient-to-bl from-blue-400/5 to-transparent"></div>
     </div>
   );
 }
+
+

@@ -11,7 +11,7 @@ export default function NotFound() {
         <main className="flex-1 flex items-center justify-center">
           <div className="container max-w-4xl mx-auto px-4 py-12 text-center">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">
-              <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent">
                 404
               </span>
             </h1>
