@@ -33,7 +33,7 @@ export function About() {
           >
             Builder &{" "}
             <span className="bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent">
-              Not Manager
+              Not Just a Manager
             </span>
           </motion.h2>
 
