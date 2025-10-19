@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollObserverProvider } from "@/lib/scroll-observer";
 import { GlobalBackground } from "@/components/global-background";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 // Single font for the entire website - Inter
 const inter = Inter({
@@ -46,6 +47,7 @@ export default function RootLayout({
           <GlobalBackground />
           <ScrollObserverProvider>{children}</ScrollObserverProvider>
         </ThemeProvider>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
